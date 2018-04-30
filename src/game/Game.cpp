@@ -28,8 +28,9 @@ int Game::Go()
 
 int Game::UpdateGame() 
 {
+    float time = clock.getElapsedTime().asMicroseconds();
     sf::Time elapsed = clock.restart();
-    user.Update();
+    user.Update(time);
 
 
     return 0;

@@ -7,23 +7,21 @@ class Entity
 {
 public:
     virtual ~Entity();
-    virtual float GetX() = 0;
-    virtual float GetY() = 0;
-    virtual sf::Sprite GetSprite() = 0;
-    virtual sf::Texture GetTexture() = 0;
-    virtual int GetNumFrame() = 0;
-    virtual int Update() = 0;
+    virtual float GetX();
+    virtual float GetY();
+    virtual sf::Sprite GetSprite();
+    virtual sf::Texture GetTexture();
+    virtual float GetCurrentFrame();
+    virtual int Update(float time) = 0;
     
 protected:
     float x;
     float y;
     bool onGround;
     std::string img;
-    int numFrame;
+    float currentFrame;
 
     //SFML
-    sf::Image image;
-    sf::IntRect intRect;
     sf::Texture texture;
     sf::Sprite sprite;
 
