@@ -18,19 +18,34 @@ User::User(std::string img, float x, float y)
 }
 
 int User::Update(float time)
-{   
-    CheckPressKeys();
+{
+    CheckPressKeys(time);
+    if (!onGround)
+    {
+        if (y < 500)
+        {
+            dy += 0.005 * time;
+        }
+        else
+        {
+            onGround = true;
+            dy = 0;
+        }
+        y += dy;
+    }
 
     sprite.setPosition(x, y);
+    dx = 0;
     return 0;
 }
 
-void User::CheckPressKeys()
+void User::CheckPressKeys(float time)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        x -= dx;
-        currentFrame += speedFrame;
+        dx = 0.2;
+        x -= dx * time;
+        currentFrame += speedFrame * time;
         if (currentFrame > 6)
         {
             currentFrame = 0;
@@ -39,21 +54,23 @@ void User::CheckPressKeys()
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        x += dx;
-        currentFrame += speedFrame;
+        dx = 0.2;
+        x += dx * time;
+        currentFrame += speedFrame * time;
         if (currentFrame > 6)
         {
             currentFrame = 0;
         }
         sprite.setTextureRect(sf::IntRect(int(currentFrame) * 40, 244, 40, 50));
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && onGround)
     {
-        y -= dy;
+        onGround = false;
+        dy = -2.5;
+        y += dy;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        y += dy;
     }
 }
 

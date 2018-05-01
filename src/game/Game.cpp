@@ -12,7 +12,6 @@ Game::~Game()
 
 int Game::Draw()
 {
-    window->clear(sf::Color::White);
     window->draw(user.GetSprite());
     window->display();
 
@@ -21,6 +20,7 @@ int Game::Draw()
 
 int Game::Go()
 {
+    window->clear(sf::Color::White);
     UpdateGame();
     Draw();
     return 0;
@@ -29,8 +29,10 @@ int Game::Go()
 int Game::UpdateGame() 
 {
     float time = clock.getElapsedTime().asMicroseconds();
-    sf::Time elapsed = clock.restart();
+    time /= 800;
+    clock.restart();
     user.Update(time);
+    map.Update(window);
 
 
     return 0;

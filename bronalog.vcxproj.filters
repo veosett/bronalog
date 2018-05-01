@@ -22,6 +22,9 @@
     <Filter Include="User">
       <UniqueIdentifier>{2dce5ac7-6548-47cd-901e-e3c1e26789e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{a681752c-f14d-4c02-9e34-7b47568e44a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="src\user\User.cpp">
       <Filter>User</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map\Map.cpp">
+      <Filter>Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="src\include\User.h">
       <Filter>User</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\Map.h">
+      <Filter>Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

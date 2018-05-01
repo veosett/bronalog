@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "User.h"
+#include "Map.h"
 
 int const TITLE_H = 32;
 int const TITLE_W = 32;
@@ -16,6 +17,7 @@ public:
 private:
     sf::Clock clock;
     User user;
+    Map map;
 
     sf::RenderWindow* window;
     sf::Event* event;

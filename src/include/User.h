@@ -7,7 +7,7 @@ public:
     User(std::string img, float x, float y);
     ~User() override;
     int Update(float time) override;
-    void CheckPressKeys();
+    void CheckPressKeys(float time);
 private:
     enum State
     {
@@ -16,8 +16,8 @@ private:
         Fire = 2,
     };
 
-    float dx = 0.5F;
-    float dy = 0.5F;
-    float speedFrame = 0.02;
+    float dx = 0;
+    float dy = 0;
+    float speedFrame = 0.005;
 
 };

@@ -138,6 +138,7 @@
     <ClCompile Include="src\entity\Entity.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\map\Map.cpp" />
     <ClCompile Include="src\user\User.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="src\include\Entity.h" />
     <ClInclude Include="src\include\Game.h" />
+    <ClInclude Include="src\include\Map.h" />
     <ClInclude Include="src\include\User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
