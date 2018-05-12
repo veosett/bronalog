@@ -19,7 +19,7 @@ int Map::Update(sf::RenderWindow* window)
         {
             if (map[i][j] == 'B')
             {
-                rectangle.setFillColor(sf::Color::Green);
+                rectangle.setFillColor(sf::Color::Blue);
             }
             if (map[i][j] == ' ')
             {

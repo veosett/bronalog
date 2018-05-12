@@ -17,7 +17,6 @@ public:
 protected:
     float x;
     float y;
-    bool onGround;
     std::string img;
     float currentFrame;
 

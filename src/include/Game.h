@@ -9,16 +9,16 @@ int const TITLE_W = 32;
 class Game
 {
 public:
-    Game(sf::RenderWindow* window, sf::Event* event);
+    Game(int width, int heigh);
     ~Game();
-    int Draw();
+    int Render();
     int Go();
     int UpdateGame();
+    int ProcessEvents();
 private:
+    sf::RenderWindow window;
+    sf::Event event;
     sf::Clock clock;
     User user;
     Map map;
-
-    sf::RenderWindow* window;
-    sf::Event* event;
 };

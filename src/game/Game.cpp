@@ -1,39 +1,54 @@
 #include "Game.h"
 
-Game::Game(sf::RenderWindow* window, sf::Event* event) : user("fang.png", 10, 10)
+Game::Game(int width, int heigh) : user("fang.png", 10, 10), window(sf::VideoMode(width, heigh), "Bronalog")
 {
-    this->window = window;
-    this->event = event;
+    window.setFramerateLimit(60);
 }
 
-Game::~Game()
-{
-}
+Game::~Game() {}
 
-int Game::Draw()
+int Game::Render()
 {
-    window->draw(user.GetSprite());
-    window->display();
+    window.draw(user.GetSprite());
+    window.display();
 
     return 0;
 }
 
 int Game::Go()
 {
-    window->clear(sf::Color::White);
-    UpdateGame();
-    Draw();
+    while (window.isOpen()) {
+        ProcessEvents();
+
+        window.clear(sf::Color::White);
+
+        UpdateGame();
+        Render();
+    }
+
     return 0;
 }
 
 int Game::UpdateGame() 
 {
     float time = clock.getElapsedTime().asMicroseconds();
-    time /= 800;
+    time /= 700;
     clock.restart();
     user.Update(time);
-    map.Update(window);
+    map.Update(&window);
 
 
+    return 0;
+}
+
+int Game::ProcessEvents()
+{
+    while (window.pollEvent(event)) {
+        switch (event.type) {
+        case sf::Event::Closed:
+            window.close();
+            break;
+        }
+    }
     return 0;
 }
